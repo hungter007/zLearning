@@ -9,11 +9,14 @@ from django.db import models
 class CityDict(models.Model):
     name = models.CharField(max_length=20, verbose_name=u"城市")
     desc = models.CharField(max_length=200, verbose_name=u"描述")
-    add_time = models.DateTimeField(default=datetime.now)
+    add_time = models.DateTimeField(default=datetime.now, verbose_name=u"添加时间")
 
     class Meta:
         verbose_name = "城市"
         verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.name
 
 
 class CourseOrg(models.Model):
@@ -24,11 +27,14 @@ class CourseOrg(models.Model):
     address = models.CharField(max_length=100, verbose_name=u"机构地址")
     image = models.ImageField(upload_to="org/%Y/%m", max_length=100, verbose_name=u"图标")
     city = models.ForeignKey(CityDict, verbose_name=u"所在城市")
-    add_time = models.DateTimeField(default=datetime.now)
+    add_time = models.DateTimeField(default=datetime.now, verbose_name=u"添加时间")
 
     class Meta:
         verbose_name = "课程机构"
         verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.name
 
 
 class Teacher(models.Model):
@@ -41,7 +47,7 @@ class Teacher(models.Model):
     age = models.CharField(max_length=20, verbose_name=u"年龄")
     click_nums = models.IntegerField(default=0, verbose_name=u"点击数")
     fav_nums = models.IntegerField(default=0, verbose_name=u"收藏数")
-    add_time = models.DateTimeField(default=datetime.now)
+    add_time = models.DateTimeField(default=datetime.now, verbose_name=u"添加时间")
 
     class Meta:
         verbose_name = "教师信息"
