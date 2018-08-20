@@ -1,0 +1,13 @@
+{% extends 'org_base.html' %}
+{% load staticfiles %}
+{% block right_form %}
+<div class="right companycenter layout" >
+        <div class="head">
+            <h1>机构介绍</h1>
+        </div>
+        <div class="des">
+            <p><p>&nbsp; &nbsp;</p><h1 class="ue_t" label="Title center" name="tc" style="border-bottom-color:#cccccc;border-bottom-width:2px;border-bottom-style:solid;padding:0px 4px 0px 0px;text-align:center;margin:0px 0px 20px;"><span style="color:#c0504d;">{{ courses_org.name }}</span></h1><p style="text-align:center;"><strong class="ue_t">{{ courses_org.category }}</strong></p><h3><span class="ue_t" style="font-family:幼圆">机构介绍</span></h3><p class="ue_t" style="text-indent:2em;">{{ courses_org.des }}</p><p>{{ courses_org.add_time }}</p><p><br/></p><p><br/></p></p>
+        </div>
+    </div>
+{% endblock %}
+{% block page_path %}机构介绍{% endblock %}
